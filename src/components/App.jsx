@@ -15,6 +15,16 @@ class App extends Component {
     filter: '',
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
+  // componentDidMount() {
+  //   const STOREG_KEY = localStorage.getItem();
+  // }
+
   addContact = man => {
     const { contacts } = this.state;
     console.log(man);

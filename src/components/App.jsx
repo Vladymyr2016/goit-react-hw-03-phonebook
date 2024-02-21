@@ -21,9 +21,12 @@ class App extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   const STOREG_KEY = localStorage.getItem();
-  // }
+  componentDidMount() {
+    const STOREG_KEY = JSON.parse(localStorage.getItem('contacts'));
+    if (STOREG_KEY) {
+      this.setState({ contacts: STOREG_KEY });
+    }
+  }
 
   addContact = man => {
     const { contacts } = this.state;
